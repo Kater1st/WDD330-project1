@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Currency Converter</title>
+  <link rel="stylesheet" href="/src/style.css" />
+</head>
+
+<body>
+  <main>
+    <div id="header-placeholder"></div>
+    <section>
+      <div class="container">
+        <h2>Currency Converter</h2>
+        <div>
+
+          <select id="fromCurrency"></select>
+          <input id="amount" type="number" placeholder="Enter Amount" />
+          <select id="toCurrency"></select>
+
+        </div>
+        <button id="convert">Convert</button>
+        <p id="result"></p>
+
+      </div>
+    </section>
+
+    <section>
+      <h2>Currency History</h2>
+      <div class="chart-controls">
+        <label for="chartBaseCurrency">Base Currency:</label>
+        <select id="chartBaseCurrency"></select> <br>
+
+        <label for="chartTargetCurrency">Target Currency:</label>
+        <select id="chartTargetCurrency"></select>
+      </div>
+      <div class="button-container">
+        <button id="updateChart">Update Chart</button>
+      </div>
+      <div class="chart-container">
+        <canvas id="chart"></canvas>
+      </div>
+    </section>
+    <div id="footer-placeholder"></div>
+  </main>
+  <script type="module" src="/src/main.js"></script>
+</body>
+
+</html>

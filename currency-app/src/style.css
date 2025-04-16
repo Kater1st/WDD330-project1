@@ -1,0 +1,362 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Roboto:wght@400;500;700&display=swap');
+
+:root {
+  font-family: 'Poppins', sans-serif;
+  font-size: 18px; /* Increase base font size */
+  line-height: 1.8;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  font-weight: 500;
+  color: #646cff;
+  text-decoration: inherit;
+}
+a:hover {
+  color: #535bf2;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: #f2f2f2;
+  color: #333333;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  align-items: center;    /* Center vertically */
+  min-height: 100vh;      /* Full viewport height */
+}
+
+.dark-mode {
+  background-color: #121212;
+  color: #ffffff;
+}
+
+body.dark-mode {
+  background-color: #121212;
+  color: #ffffff;
+}
+
+body.dark-mode header {
+  background-color: #333333;
+}
+
+body.dark-mode section {
+  background-color: #333333; /* Dark background */
+  color: #ffffff; /* Light text */
+  border-color: #56CC9D; /* Change border color */
+  box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1); /* Adjust shadow */
+}
+
+.container {
+  max-width: 700px; /* Increase the width */
+  margin: auto;
+  padding: 40px; /* Add more padding */
+  text-align: center; /* Center-align text */
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px; /* Increase padding */
+  background-color: #2f80ed;
+  color: white;
+  font-size: 1.2em; /* Increase font size */
+}
+
+.header-container {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.logo {
+  width: 40px;
+  height: 40px;
+}
+
+h1 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.5rem;
+  margin: 0;
+}
+
+.reset-button,
+.theme-toggle {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+.reset-button:hover,
+.theme-toggle:hover {
+  opacity: 0.8;
+}
+
+#app {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.logo {
+  height: 2em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.vanilla:hover {
+  filter: drop-shadow(0 0 2em #f7df1eaa);
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
+
+button {
+  background-color: #2F80ED;
+  color: #ffffff;
+  border: none;
+  padding: 15px 30px; /* Increase padding */
+  cursor: pointer;
+  border-radius: 8px;
+  font-size: 1.2em; /* Increase font size */
+  font-weight: 600;
+  font-family: inherit;
+  transition: background-color 0.25s;
+}
+
+button:hover {
+  background-color: #56CC9D;
+}
+
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+input, select {
+  padding: 10px 15px; /* Increase padding */
+  font-size: 1.1em; /* Increase font size */
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin: 10px 0;
+  width: 100%; /* Full width */
+  max-width: 400px; /* Limit width */
+  box-sizing: border-box;
+}
+
+footer {
+  background-color: #2f80ed;
+  color: white;
+  text-align: center;
+  padding: 20px; /* Increase padding */
+  font-size: 1.1em; /* Increase font size */
+}
+
+footer a {
+  color: #56cc9d;
+  text-decoration: none;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
+
+/* Center the Update Chart button */
+.chart-controls {
+  display: flex;
+  flex-direction: column; /* Stack items vertically */
+  align-items: center; /* Center items horizontally */
+  gap: 10px; /* Add spacing between items */
+}
+
+.chart-controls button {
+  background-color: #2F80ED;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-top: 10px; /* Add spacing above the button */
+}
+
+.chart-controls button:hover {
+  background-color: #56CC9D;
+}
+
+/* Style for sections */
+section {
+  border: 2px solid #2F80ED; /* Add a border */
+  border-radius: 15px; /* Rounded corners */
+  padding: 20px; /* Add padding inside the section */
+  margin: 20px auto; /* Add spacing between sections */
+  max-width: 800px; /* Limit the width */
+  background-color: #ffffff; /* White background */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+}
+
+/* Center all items inside sections */
+section h2,
+section div,
+section button,
+section p {
+  text-align: center; /* Center text */
+  margin: 10px auto; /* Add spacing */
+}
+
+/* Center dropdowns and inputs */
+section select,
+section input {
+  display: block;
+  margin: 10px auto; /* Center horizontally */
+  text-align: center;
+}
+
+/* Center the chart */
+.chart-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+  a:hover {
+    color: #747bff;
+  }
+  button {
+    background-color: #f9f9f9;
+  }
+}
+
+@media (max-width: 800px) {
+
+  .container {
+    max-width: 500px; /* Increase the width */
+    padding: 20px; /* Add more padding */
+    text-align: center; /* Center-align text */
+  }
+
+  section {
+    max-width: 500px;
+    padding: 10px; /* Reduce padding inside sections */
+    margin: 10px auto; /* Reduce margin between sections */
+    max-width: 500px; /* Allow full width */
+  }
+}
+
+
+
+@media (max-width: 700px) {
+
+  .container {
+    max-width: 400px; 
+    padding: 40px; /* Add more padding */
+    text-align: center; /* Center-align text */
+  }
+
+  section {
+    max-width: 400px;
+    padding: 10px; /* Reduce padding inside sections */
+    margin: 10px auto; /* Reduce margin between sections */
+    max-width: 300px; /* Allow full width */
+  }
+}
+
+@media (max-width: 500px) {
+  .header-container {
+    flex-direction: column; /* Stack items vertically */
+    align-items: center; /* Center items horizontally */
+  }
+  .header-container h1 {
+    font-size: 20px; /* Add spacing below the title */
+  }
+  
+}
+
+@media (max-width: 346px) {
+
+  .container {
+    max-width: 300px; 
+    padding: 15px; /* Add more padding */
+    text-align: center; /* Center-align text */
+  }
+
+  section {
+    padding: 10px; /* Reduce padding inside sections */
+    margin: 10px auto; /* Reduce margin between sections */
+    max-width: 290px; /* Allow full width */
+  }
+}
+
+
+
+
+
+@media (max-width: 330px) {
+  body {
+    font-size: 14px; /* Reduce font size for smaller screens */
+    padding: 0 10px; /* Maintain padding on the left and right */
+  }
+
+  section {
+    padding: 15px; /* Reduce padding inside sections */
+    margin: 10px auto; /* Reduce margin between sections */
+    max-width: 260px; /* Allow full width */
+  }
+
+  .container {
+    max-width: 280px; 
+    padding: 5px; /* Add more padding */
+    text-align: center; /* Center-align text */
+  }
+
+  input,
+  select {
+    font-size: 1em; /* Adjust font size */
+    padding: 8px; /* Reduce padding */
+    max-width: 100%; /* Allow full width */
+  }
+
+  button {
+    font-size: 1em; /* Adjust button font size */
+    padding: 10px 15px; /* Adjust button padding */
+  }
+
+  .chart-container {
+    margin-top: 10px; /* Reduce margin above the chart */
+  }
+
+  footer {
+    font-size: 0.9em; /* Reduce footer font size */
+    padding: 10px; /* Reduce padding */
+  }
+}
+
+
