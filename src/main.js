@@ -6,6 +6,7 @@ import Chart from 'chart.js/auto';
 // API Configuration
 const API_URL = 'https://api.exchangerate-api.com/v4/latest/';
 const HISTORICAL_API_URL = 'https://api.exchangerate-api.com/v4/history/';
+const isDev = import.meta.env.DEV; // 
 
 // DOM Elements
 const amountInput = document.getElementById('amount');
@@ -222,11 +223,24 @@ function restoreUserPreferences() {
 // Load the header dynamically
 async function loadHeader() {
   try {
-    const response = await fetch('/src/partials/header.html');
+    const path = isDev ? '/src/partials/header.html' : './partials/header.html'; // Correct path for development and production
+    const response = await fetch(path);
+    if (!response.ok) throw new Error('Failed to load header');
     const headerHTML = await response.text();
     document.getElementById('header-placeholder').innerHTML = headerHTML;
 
-    // Add functionality for buttons after loading the header
+    // Dynamically add the logo image
+    const logo = document.createElement('img');
+    logo.src = isDev ? '/src/partials/images/logo.png' : './images/logo.png'; // Adjust path for development and production
+    logo.alt = 'Logo';
+    logo.className = 'logo';
+
+    const headerContainer = document.querySelector('.header-container');
+    if (headerContainer) {
+      headerContainer.insertBefore(logo, headerContainer.firstChild); // Add the logo as the first child
+    }
+
+    // Initialize header buttons after loading
     setupHeaderButtons();
   } catch (error) {
     console.error('Error loading header:', error);
@@ -237,28 +251,56 @@ async function loadHeader() {
 function setupHeaderButtons() {
   // Reset Button: Refresh the page
   const resetButton = document.getElementById('reset-button');
-  resetButton.addEventListener('click', () => {
-    fromCurrency.value = 'USD';
-    toCurrency.value = 'EUR';
-    amountInput.value = '';
-    resultDisplay.textContent = '';
-    chartBaseCurrency.value = 'USD';
-    chartTargetCurrency.value = 'EUR';
-    renderChart('USD', 'EUR');
-    saveUserPreferences();
-  });
+  if (resetButton) {
+    resetButton.addEventListener('click', () => {
+      fromCurrency.value = 'USD';
+      toCurrency.value = 'EUR';
+      amountInput.value = '';
+      resultDisplay.textContent = '';
+      chartBaseCurrency.value = 'USD';
+      chartTargetCurrency.value = 'EUR';
+      renderChart('USD', 'EUR');
+      saveUserPreferences();
+    });
+  }
+
+  // Theme Toggle Button: Toggle between light and dark modes
+  const themeToggleButton = document.getElementById('theme-toggle');
+  if (themeToggleButton) {
+    themeToggleButton.addEventListener('click', () => {
+      document.body.classList.toggle('dark-mode');
+      saveUserPreferences();
+    });
+
+    // Update the button text/icon based on the current theme
+    const updateThemeButton = () => {
+      if (document.body.classList.contains('dark-mode')) {
+        themeToggleButton.textContent = '☀️ Light Mode';
+      } else {
+        themeToggleButton.textContent = '🌙 Dark Mode';
+      }
+    };
+
+    // Initialize the button text/icon
+    updateThemeButton();
+    themeToggleButton.addEventListener('click', updateThemeButton);
+  }
 }
 
 // Load the footer dynamically
 async function loadFooter() {
   try {
-    const response = await fetch('/src/partials/footer.html');
+    const path = isDev ? '/src/partials/footer.html' : './partials/footer.html'; // Correct path for production
+    const response = await fetch(path);
+    if (!response.ok) throw new Error('Failed to load footer');
     const footerHTML = await response.text();
     document.getElementById('footer-placeholder').innerHTML = footerHTML;
 
     // Set the last modified date
-    const lastModified = document.lastModified;
-    document.getElementById('last-modified').textContent = lastModified;
+    const lastModifiedSpan = document.getElementById('last-modified');
+    if (lastModifiedSpan) {
+      lastModifiedSpan.textContent = document.lastModified;
+    }
   } catch (error) {
     console.error('Error loading footer:', error);
   }
