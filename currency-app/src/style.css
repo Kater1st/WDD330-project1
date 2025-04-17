@@ -136,7 +136,7 @@ h1 {
 
 button {
   background-color: #2F80ED;
-  color: #ffffff;
+  color: black;
   border: none;
   padding: 15px 30px; /* Increase padding */
   cursor: pointer;
@@ -169,7 +169,7 @@ input, select {
 
 footer {
   background-color: #2f80ed;
-  color: white;
+  color: black;
   text-align: center;
   padding: 20px; /* Increase padding */
   font-size: 1.1em; /* Increase font size */
