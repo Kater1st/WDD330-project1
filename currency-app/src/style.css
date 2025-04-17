@@ -23,6 +23,8 @@ a {
 }
 a:hover {
   color: #535bf2;
+  text-decoration: underline;
+  transition: color 0.2s ease, text-decoration 0.2s ease;
 }
 
 body {
@@ -128,6 +130,30 @@ h1 {
 
 .card {
   padding: 2em;
+  perspective: 1000px;
+}
+
+.card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 0.6s;
+}
+
+.card:hover .card-inner {
+  transform: rotateY(180deg);
+}
+
+.card-front, .card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+}
+
+.card-back {
+  transform: rotateY(180deg);
 }
 
 .read-the-docs {
@@ -149,6 +175,8 @@ button {
 
 button:hover {
   background-color: #56CC9D;
+  transform: scale(1.05); /* Slightly enlarge the button */
+  transition: transform 0.2s ease, background-color 0.2s ease;
 }
 
 button:focus,
@@ -165,6 +193,12 @@ input, select {
   width: 100%; /* Full width */
   max-width: 400px; /* Limit width */
   box-sizing: border-box;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+input:focus, select:focus {
+  border-color: #2F80ED;
+  box-shadow: 0 0 5px rgba(47, 128, 237, 0.5);
 }
 
 footer {
@@ -206,6 +240,18 @@ footer a:hover {
   background-color: #56CC9D;
 }
 
+/* Fade-in animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 /* Style for sections */
 section {
   border: 2px solid #2F80ED; /* Add a border */
@@ -215,6 +261,7 @@ section {
   max-width: 800px; /* Limit the width */
   background-color: #ffffff; /* White background */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+  animation: fadeIn 0.8s ease-in-out; /* Apply the animation */
 }
 
 /* Center all items inside sections */
@@ -240,6 +287,44 @@ section input {
   justify-content: center;
   align-items: center;
   margin-top: 20px;
+}
+
+.chart-container canvas {
+  max-width: 100%; /* Ensure the chart fits within the container */
+  height: auto; /* Maintain aspect ratio */
+}
+
+/* Exchange Rates Table */
+.exchange-rates-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  font-size: 1em;
+  text-align: left;
+}
+
+.exchange-rates-table th,
+.exchange-rates-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+.exchange-rates-table th {
+  background-color: #2F80ED;
+  color: white;
+  font-weight: bold;
+}
+
+.exchange-rates-table tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.exchange-rates-table tr:hover {
+  background-color: #ddd;
+}
+
+.exchange-rates-table {
+  font-size: 0.9em; /* Reduce font size for smaller screens */
 }
 
 @media (prefers-color-scheme: light) {
@@ -309,6 +394,9 @@ section input {
     font-size: 20px; /* Add spacing below the title */
   }
   
+  .exchange-rates-table th, .exchange-rates-table td {
+    padding: 5px; /* Reduce padding */
+  }
 }
 
 @media (max-width: 346px) {
@@ -367,6 +455,25 @@ section input {
   footer {
     font-size: 0.9em; /* Reduce footer font size */
     padding: 10px; /* Reduce padding */
+  }
+}
+
+.spinner {
+  border: 4px solid rgba(0, 0, 0, 0.1);
+  border-top: 4px solid #2F80ED;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 1s linear infinite;
+  margin: 20px auto;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
   }
 }
 
