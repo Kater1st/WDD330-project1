@@ -243,7 +243,7 @@ async function loadHeader() {
     // Initialize header buttons after loading
     setupHeaderButtons();
   } catch (error) {
-    console.error('Error loading header:', error);
+    console.error('Error loading header:', error); 
   }
 }
 
