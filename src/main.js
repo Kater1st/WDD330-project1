@@ -2,6 +2,7 @@ import './style.css'
 import axios from 'axios';
 import Chart from 'chart.js/auto';
 
+
 // API Configuration
 const API_URL = 'https://api.exchangerate-api.com/v4/latest/';
 const HISTORICAL_API_URL = 'https://api.exchangerate-api.com/v4/history/';
