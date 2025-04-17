@@ -290,9 +290,20 @@ section input {
 }
 
 @media (max-width: 500px) {
+  header {
+    display: flex;
+    justify-content: center; /* Center the header-container horizontally */
+    align-items: center; /* Center the header-container vertically */
+    padding: 20px 40px; /* Add padding */
+    background-color: #2f80ed;
+    color: white;
+    font-size: 1.2em; /* Increase font size */
+  }
   .header-container {
     flex-direction: column; /* Stack items vertically */
     align-items: center; /* Center items horizontally */
+    justify-content: center; /* Center items within the header */
+    text-align: center;
   }
   .header-container h1 {
     font-size: 20px; /* Add spacing below the title */
